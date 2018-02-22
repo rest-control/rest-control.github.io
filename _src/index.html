@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<div class="uk-container">
+    <div class="uk-text-center ruc-header">
+        <h1 class="uk-heading-primary">RestControl</h1>
+        <p class="uk-text-large">Modern and powerful framework for testing REST services</p>
+    </div>
+    <hr class="uk-divider-icon">
+</div>
+<!---
+<div class="uk-container">
+    <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
+        <div>
+            <div class="uk-card uk-card-hover uk-card-body">
+                <h3 class="uk-card-title"><span uk-icon="icon: settings"></span> Sample title</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum dui ipsum, et tempus nunc feugiat id. Nam accumsan nisi massa, at sagittis risus consequat quis. Sed porttitor pharetra malesuada. Quisque dictum euismod felis non feugiat.</p>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-hover uk-card-body">
+                <h3 class="uk-card-title"><span uk-icon="icon: social"></span> Another title</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum dui ipsum, et tempus nunc feugiat id. Nam accumsan nisi massa, at sagittis risus consequat quis. Sed porttitor pharetra malesuada. Quisque dictum euismod felis non feugiat.</p>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-hover uk-card-body">
+                <h3 class="uk-card-title"><span uk-icon="icon: future"></span> Sample title</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum dui ipsum, et tempus nunc feugiat id. Nam accumsan nisi massa, at sagittis risus consequat quis. Sed porttitor pharetra malesuada. Quisque dictum euismod felis non feugiat.</p>
+            </div>
+        </div>
+    </div>
+    <hr class="uk-divider-icon">
+</div>
+--->
+<div class="uk-container uk-margin-top">
+    <div>
+        <h2># Elegant and expressive</h2>
+        <p>
+            Etiam sit amet nisl in sem luctus dignissim pulvinar in neque. Duis euismod gravida neque, vitae egestas elit egestas et. Proin luctus massa nisl, iaculis volutpat orci suscipit eu. Ut eget sodales nulla. Duis vehicula, sem vel finibus lacinia, tellus elit consectetur ex, rutrum aliquam risus enim quis quam. Ut ac turpis placerat, ultricies sem eu, aliquam libero.
+        </p>
+    <pre class="pre-code">
+        <code class="php">
+ /**
+  * @test(
+  *     title="Example test",
+  *     description="Example test description",
+  *     tags="find user"
+  * )
+  */
+ public function exampleFindUser()
+ {
+    return $this->send()
+                ->get('https://jsonplaceholder.typicode.com/users/1')
+                ->expectedResponse()
+                ->json()
+                ->jsonPath('$.address.street', $this->endsWith('Light'));
+ }
+        </code>
+    </pre>
+    </div>
+    <hr class="uk-divider-icon">
+</div>
+
+
+<div class="uk-container uk-margin-top">
+    <div>
+        <h2># Quick start</h2>
+        <p>
+            The best way for quick start is to use RestControl standalone application.
+            You can find it here <a target="_blank" href="https://github.com/rest-control/standalone-testing-application">rest-control/standalone-testing-application</a>. If you want to save yourself the hassle of installing dependencies required for this project on your local machine, you can use Docker containers as an alternative. Note that you will need Docker and Docker Compose in version >= 2.1.<br/><br/>
+
+            To build and start RestControl standalone application, run following commands: <br/>
+<pre>
+user@user:~/projects/standalone-testing-application$ make build
+user@user:~/projects/standalone-testing-application$ make start
+</pre>
+        </p>
+        <p>
+            Now, you can use Docker machine and run example tests.
+        <pre>
+user@user:~/projects/standalone-testing-application$ docker exec -it restcontrol_cli_1 bash
+user@machineid:/app# php vendor/bin/rest-control run
+</pre>
+        </p>
+    </div>
+</div>
