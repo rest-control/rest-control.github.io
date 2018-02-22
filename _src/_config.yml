@@ -1,0 +1,8 @@
+# Site settings
+title: RestControl - REST testing framework
+email: kamil.szela@cothe.pl
+description: "RestControl is modern and powerful framework for testing REST services. RestControl provides set of tools for describing HTTP requests and responses in expressive and elegant way."
+
+# Build settings
+markdown: kramdown
+permalink: pretty
