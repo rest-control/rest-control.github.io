@@ -1,1 +1,178 @@
-Hello world
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RestControl - REST testing framework</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="RestControl is modern and powerful framework for testing REST services. RestControl provides set of tools for describing HTTP requests and responses in expressive and elegant way.">
+    <link rel="canonical" href="/">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+
+    <body>
+
+    <header class="site-header">
+  <nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-center">
+      <div class="uk-navbar-left">
+
+        <a class="uk-navbar-item uk-logo" href="/index.html">
+          <span class="logo-left-span">Rest</span>
+          <span class="logo-right-span">Control</span>&nbsp;
+          <span class="logo-small-info">:: REST testsing framework</span>
+        </a>
+        <div class="uk-navbar-item">
+          <div><a href="/documentation/index.html">Documentation</a></div>
+        </div>
+        <div class="uk-navbar-item">
+          <div><a href="/tutorials/index.html">Tutorials</a></div>
+        </div>
+        <div class="uk-navbar-item">
+          <div><a href="https://github.com/rest-control/rest-control/releases" target="_blank">Releases</a></div>
+        </div>
+
+
+        <ul class="uk-navbar-nav">
+          <li>
+            <a href="https://github.com/rest-control" target="_blank">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: github"></span>
+              Source
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="uk-container">
+    <div class="uk-text-center ruc-header">
+        <h1 class="uk-heading-primary">RestControl</h1>
+        <p class="uk-text-large">Modern and powerful framework for testing REST services</p>
+    </div>
+    <hr class="uk-divider-icon">
+</div>
+          <!---
+          <div class="uk-container">
+              <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
+                  <div>
+                      <div class="uk-card uk-card-hover uk-card-body">
+                          <h3 class="uk-card-title"><span uk-icon="icon: settings"></span> Sample title</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum dui ipsum, et tempus nunc feugiat id. Nam accumsan nisi massa, at sagittis risus consequat quis. Sed porttitor pharetra malesuada. Quisque dictum euismod felis non feugiat.</p>
+                      </div>
+                  </div>
+                  <div>
+                      <div class="uk-card uk-card-hover uk-card-body">
+                          <h3 class="uk-card-title"><span uk-icon="icon: social"></span> Another title</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum dui ipsum, et tempus nunc feugiat id. Nam accumsan nisi massa, at sagittis risus consequat quis. Sed porttitor pharetra malesuada. Quisque dictum euismod felis non feugiat.</p>
+                      </div>
+                  </div>
+                  <div>
+                      <div class="uk-card uk-card-hover uk-card-body">
+                          <h3 class="uk-card-title"><span uk-icon="icon: future"></span> Sample title</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum dui ipsum, et tempus nunc feugiat id. Nam accumsan nisi massa, at sagittis risus consequat quis. Sed porttitor pharetra malesuada. Quisque dictum euismod felis non feugiat.</p>
+                      </div>
+                  </div>
+              </div>
+              <hr class="uk-divider-icon">
+          </div>
+          --->
+<div class="uk-container uk-margin-top">
+    <div>
+        <h2># Elegant and expressive</h2>
+        <p>
+            Etiam sit amet nisl in sem luctus dignissim pulvinar in neque. Duis euismod gravida neque, vitae egestas elit egestas et. Proin luctus massa nisl, iaculis volutpat orci suscipit eu. Ut eget sodales nulla. Duis vehicula, sem vel finibus lacinia, tellus elit consectetur ex, rutrum aliquam risus enim quis quam. Ut ac turpis placerat, ultricies sem eu, aliquam libero.
+        </p>
+    <pre class="pre-code">
+        <code class="php">
+ /**
+  * @test(
+  *     title="Example test",
+  *     description="Example test description",
+  *     tags="find user"
+  * )
+  */
+ public function exampleFindUser()
+ {
+    return $this->send()
+                ->get('https://jsonplaceholder.typicode.com/users/1')
+                ->expectedResponse()
+                ->json()
+                ->jsonPath('$.address.street', $this->endsWith('Light'));
+ }
+        </code>
+    </pre>
+    </div>
+    <hr class="uk-divider-icon">
+</div>
+
+
+<div class="uk-container uk-margin-top">
+    <div>
+        <h2># Quick start</h2>
+        <p>
+            The best way for quick start is to use RestControl standalone application.
+            You can find it here <a target="_blank" href="https://github.com/rest-control/standalone-testing-application">rest-control/standalone-testing-application</a>. If you want to save yourself the hassle of installing dependencies required for this project on your local machine, you can use Docker containers as an alternative. Note that you will need Docker and Docker Compose in version >= 2.1.<br/><br/>
+
+            To build and start RestControl standalone application, run following commands: <br/>
+<pre>
+user@user:~/projects/standalone-testing-application$ make build
+user@user:~/projects/standalone-testing-application$ make start
+</pre>
+        </p>
+        <p>
+            Now, you can use Docker machine and run example tests.
+        <pre>
+user@user:~/projects/standalone-testing-application$ docker exec -it restcontrol_cli_1 bash
+user@machineid:/app# php vendor/bin/rest-control run
+</pre>
+        </p>
+    </div>
+</div>
+      </div>
+    </div>
+
+    <section class="footer">
+    <div class="uk-container">
+        <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
+            <div>
+                <div style="text-align:center">
+                    <a href="/index.html">
+                    <img src="/assets/img/rest-control.png" />
+                    </a>
+                </div>
+                <div style="text-align:center">
+                    Copyrights &copy; 2018 RestControl
+                </div>
+            </div>
+            <div></div>
+            <div>
+                <div>
+                    <a href="https://github.com/rest-control" target="_blank">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: github"></span>
+                        Source
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    </body>
+</html>
