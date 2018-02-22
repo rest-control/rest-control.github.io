@@ -1,0 +1,61 @@
+.uk-navbar-container:not(.uk-navbar-transparent) {
+  background: #3b4450;
+}
+.uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
+  height: 60px;
+}
+
+.uk-navbar-item .uk-link:hover, a:hover{
+  color: #379fe1;
+}
+.uk-navbar-item .uk-link, a{
+  color: white;
+}
+
+.uk-link, a {
+  color: #379fe1;
+}
+
+.logo-left-span {
+  color:white;
+  font-weight:bold;
+}
+
+.logo-right-span {
+  font-weight:bold;
+  color:#379fe1;
+}
+
+.logo-small-info {
+  font-size: 12px;
+  color:#87919c;
+}
+
+.pre-code {
+  margin:0 !important;
+  padding:0 !important;
+  border:none;
+}
+
+.pre-code code {
+  border-radius: 5px;
+}
+
+.footer {
+  padding: 40px;
+  background: #272a2f;
+  margin-top:40px;
+}
+
+.footer a {
+  color: #666666;
+  text-decoration:none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.ruc-header {
+  padding: 40px;
+}
