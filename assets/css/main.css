@@ -59,3 +59,12 @@
 .ruc-header {
   padding: 40px;
 }
+
+.ruc-header-icon-nav a {
+  margin:0;
+  padding:0;
+}
+
+.ruc-header-icon-nav {
+  margin-left: 10px;
+}
