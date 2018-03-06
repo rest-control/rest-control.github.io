@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RestControl::Documentation</title>
+    <title>RestControl::Documentation::Writing Tests</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="RestControl is modern and powerful framework for testing REST services. RestControl provides set of tools for describing HTTP requests and responses in expressive and elegant way.">
-    <link rel="canonical" href="https://rest-control.github.io/documentation/">
+    <link rel="canonical" href="https://rest-control.github.io/documentation/writing-tests">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
     <link rel="stylesheet"
@@ -84,8 +84,71 @@
                     </div>
                 </div>
                 <div class="uk-width-3-4"><div class="uk-container">
-    <div class="uk-text-center ruc-header">
-        <p class="uk-text-large">Page under construction..</p>
+    <div>
+        <h2 class="uk-heading-bullet">Introduction</h2>
+        <a href="#intro"></a>
+        <p>
+            RestControl is using class methods as test cases. Each class can contain several test cases. Each test case needs to return either <span class="ruc-sample-oneline">\RestControl\TestCase\Request</span> or <span class="ruc-sample-oneline">\RestControl\TestCase\Response</span>.
+            For greater ease of use your test class might inherit from RestControl base class <span class="ruc-sample-oneline">\RestControl\TestCase\AbstractTestCase</span> that includes both methods mentioned earlier.<br/><br/>
+            Example usage:
+        </p>
+        <pre>
+namespace Tests;
+
+use RestControl\TestCase\AbstractTestCase;
+
+class MyTests extends AbstractTestCase
+{
+    public function firstEndpointTest()
+    {
+        return send();
+    }
+
+    public function secondEndpointTest()
+    {
+        return send();
+    }
+}</pre>
+        <p>Project folder structure should correspond to configuration specified in <span class="ruc-sample-oneline">rest-control.yml</span> file, as RestControl is using this information to load tests.</p>
+    </div>
+    <div class="uk-margin-large-top">
+        <h2 class="uk-heading-bullet">Annotations</h2>
+        <a href="#annotations"></a>
+        <p>
+            RestControl uses annotations to describe a specific test case. Allows setting, e.g. test title, longer description, test tags.<br/><br/>
+            Example usage:
+        </p>
+        <pre>
+namespace Tests;
+
+use RestControl\TestCase\AbstractTestCase;
+
+class MyTests extends AbstractTestCase
+{
+    /**
+     * @test(
+     *     title="First Endpoint test",
+     *     description="First endpoint test long description",
+     *     tags="first endpoint test"
+     * )
+     */
+    public function testFirstEndpointTest()
+    {
+        //..
+    }
+
+    /**
+     * @test(
+     *     title="Second Endpoint test",
+     *     description="Second endpoint test long description",
+     *     tags="second endpoint test"
+     * )
+     */
+    public function testSecondEndpointTest()
+    {
+        //..
+    }
+}</pre>
     </div>
 </div></div>
             </div>

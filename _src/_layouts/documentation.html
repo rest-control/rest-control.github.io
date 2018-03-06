@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+
+{% include header.html %}
+
+<div class="page-content">
+    <div class="wrap">
+        <div class="uk-container">
+            <div uk-grid>
+                <div class="uk-width-1-4">
+                    <div class="uk-card uk-card-default uk-card-body uk-width-1">
+                        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                            <li class="uk-active"><a href="#">Documentation</a></li>
+                            <li class="uk-parent">
+                                <a>Using console</a>
+                                <ul class="uk-nav-sub">
+                                    <li><a href="{{ "/documentation/console#intro" | prepend: site.url }}">Introduction</a></li>
+                                    <li><a href="{{ "/documentation/console#configuration" | prepend: site.url }}">Configuration file</a></li>
+                                    <li><a href="{{ "/documentation/console#command-run-test" | prepend: site.url }}">Command run</a></li>
+                                    <li><a href="{{ "/documentation/console#command-create-test" | prepend: site.url }}">Command create:test</a></li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent">
+                                <a>Writing tests</a>
+                                <ul class="uk-nav-sub">
+                                    <li><a href="{{ "/documentation/writing-tests#intro" | prepend: site.url }}">Introduction</a></li>
+                                    <li><a href="{{ "/documentation/writing-tests#annotations" | prepend: site.url }}">Annotations</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="uk-width-3-4">{{ content }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include footer.html %}
+
+</body>
+</html>

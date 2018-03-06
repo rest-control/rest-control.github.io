@@ -2,11 +2,16 @@ version: '2.1'
 
 services:
   cli:
-    build: ./
+    image: jekyll/jekyll:latest
     volumes:
       - ./../:/app
     working_dir: /app
-    tty: true
-    stdin_open: true
+    command: jekyll serve -s ./_src
     ports:
-      - "4000:4000"
+      - 4000:4000
+    networks:
+       - rest_control
+networks:
+  rest_control:
+    external:
+      name: rest-control

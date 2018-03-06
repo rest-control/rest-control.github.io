@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RestControl::Documentation</title>
+    <title>RestControl::Documentation::Console</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="RestControl is modern and powerful framework for testing REST services. RestControl provides set of tools for describing HTTP requests and responses in expressive and elegant way.">
-    <link rel="canonical" href="https://rest-control.github.io/documentation/">
+    <link rel="canonical" href="https://rest-control.github.io/documentation/console">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
     <link rel="stylesheet"
@@ -84,8 +84,110 @@
                     </div>
                 </div>
                 <div class="uk-width-3-4"><div class="uk-container">
-    <div class="uk-text-center ruc-header">
-        <p class="uk-text-large">Page under construction..</p>
+    <div>
+        <h2 class="uk-heading-bullet">Introduction</h2>
+        <a href="#intro"></a>
+        <p>
+            Rest-Control console is the command-line interface that provides access to a set of useful commands, that will make writing Rest-Control tests much easier and more efficient.<br/><br/>
+
+            To see all the available commands, run the following:
+        <pre>user@computer:/path/to/project php vendor/bin/rest-control help</pre>
+        </p>
+    </div>
+    <div class="uk-margin-large-top">
+        <h2 class="uk-heading-bullet">Configuration</h2>
+        <a href="#configuration"></a>
+        <p>
+            By default configuration file is located in project directory under the name <span class="ruc-sample-oneline">rest-control.yml</span>.
+        </p>
+        <pre>
+tests:
+  namespace: Sample\\
+  path: /sample
+  classSuffix: Test.php
+  methodPrefix: test
+
+#responseFilters:
+#  - \Sample\Filter\Response\Class
+
+#apiMockResponses
+#  - \Sample\ApiMockResponse
+
+apiClient: \RestControl\ApiClient\HttpGuzzleClient
+
+#Custom variables loaded for all testCases
+#variables:
+#  sample: value
+#  sample2:
+#    - arrayValue
+#    - arrayValue2
+        </pre>
+        <h4>Tests namespace</h4>
+        <pre>
+tests:
+  namespace: Sample\\
+  path: /sample
+  classSuffix: Test.php
+  methodPrefix: myTests
+        </pre>
+        <p>
+            The runtime environment allows to run tests from namespace in PSR-4 format. Namespace configuration should consist of <span class="ruc-sample-oneline">namespace</span> and the <span class="ruc-sample-oneline">path</span> attributes.<br/><br/>
+            Optionally you can specify <span class="ruc-sample-oneline">classSuffix</span>, a string that will be added at the end of test class name, also optional is <span class="ruc-sample-oneline">methodPrefix</span> which in turn will add provided string before every method name inside each command generated test class.<br/><br/>
+            Upon running <span class="ruc-sample-oneline"><a href="#commands">create:test</a></span> command with above configuration will generate following test class:
+        </p>
+        <pre>
+// #path/to/project/tests/SampleClassTest.php
+
+class SampleClassTest
+{
+    public function myTestsSampleGetMethod()
+    {
+        //..
+    }
+}</pre>
+        <h4>Response filters(todo)</h4>
+        <pre>
+responseFilters:
+  - \Sample\Filter\Response\Class</pre>
+        <h4>Custom ApiClient(todo)</h4>
+        <pre>
+apiClient: \RestControl\ApiClient\HttpGuzzleClient</pre>
+        <h4>Variables(todo)</h4>
+        <pre>
+#Custom variables loaded for all testCases
+#variables:
+#  sample: value
+#  sample2:
+#    - arrayValue
+#    - arrayValue2</pre>
+    </div>
+    <div class="uk-margin-large-top">
+        <h2 class="uk-heading-bullet">Command: run</h2>
+        <a href="#command-run-test"></a>
+        <p>
+            Executes all tests that are located in any of the namespaces provided in <span class="ruc-sample-oneline">rest-control.yml</span> file.<br/><br/>
+            Usage examples:<br/>
+        </p>
+        <pre>
+//run all tests
+user@computer:/path/to/project php vendor/bin/rest-control run
+
+//run selected tests by specifying tags that should be included:
+user@computer:/path/to/project php vendor/bin/rest-control run --tags=sampleTag,apiv1,rest</pre>
+    </div>
+    <div class="uk-margin-large-top">
+        <h2 class="uk-heading-bullet">Command: create:test</h2>
+        <a href="#command-create-test"></a>
+        <p>
+            Generates test class in given namespace, you can also opt to generate a method boilerplate inside that class.
+        </p>
+        <pre>
+user@computer:/path/to/project php vendor/bin/rest-control create:test sample.namespace.testCase</pre>
+        <p>
+            This command requires namesapce to be provided as a parameter, it needs to be formatted in dotnotation and camelCase.
+            Namespace used for this command must match with namespace specified in <span class="ruc-sample-oneline">rest-control.yml</span> file.<br/><br/>
+            Additionally this command can generate test methods along with descriptions as per user input. This step is optional to skip it press enter.
+        </p>
     </div>
 </div></div>
             </div>

@@ -68,3 +68,10 @@
 .ruc-header-icon-nav {
   margin-left: 10px;
 }
+
+.ruc-sample-oneline {
+  background: #f1efef;
+  color: #8c8686;
+  font-size: 15px;
+  padding: 2px 5px;
+}
